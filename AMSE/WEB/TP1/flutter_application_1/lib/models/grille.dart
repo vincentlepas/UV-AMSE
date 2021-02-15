@@ -10,12 +10,12 @@ class Grille extends StatelessWidget {
     return GridView.count(
       primary: false,
       padding: const EdgeInsets.all(10),
-      crossAxisSpacing: 10,
-      mainAxisSpacing: 10,
+      crossAxisSpacing: 1,
+      mainAxisSpacing: 1,
       crossAxisCount: 2,
       children: List.generate(movies.length, (index) {
         return ListTile(
-          title: Image(image: AssetImage(movies[index].poster)),
+          title: Center(child: Image(image: AssetImage(movies[index].poster))),
           onTap: () {
             Navigator.push(
                 context,

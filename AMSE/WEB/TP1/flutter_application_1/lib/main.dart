@@ -30,15 +30,48 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   final List<Widget> _widgetOptions = <Widget>[
-    Text(
-      "Bienvenue sur notre 1ère application dédiée aux animés, si vous souhaitez plus de détails sur l'un d'entre eux, il vous suffit de cliquer sur sa miniature dans la rubrique animé",
-      style: optionStyle,
+    ListView(
+      padding: const EdgeInsets.all(3),
+      children: <Widget>[
+        Container(
+          height: 400,
+          child: const Center(
+              child: Image(
+                  image: AssetImage("assets/images/Tous les animes.png"))),
+        ),
+        Container(
+          height: 300,
+          color: Colors.lightBlue[200],
+          child: const Center(
+              child: Text(
+            "Bienvenue sur notre première application mobile dédiée aux animés, si vous souhaitez obtenir plus d'information sur l'un d'entre eux, cliquez sur la miniature de celui-ci dans la rubrique animés",
+            textAlign: TextAlign.center,
+            style: optionStyle,
+          )),
+        ),
+      ],
     ),
     Grille(),
-    Text(
-      'Profil connecté: Nicolas Prevost',
-      style: optionStyle,
-    ),
+    ListView(
+      padding: const EdgeInsets.all(3),
+      children: <Widget>[
+        Container(
+          height: 150,
+          color: Colors.lightBlue[300],
+          child: const Center(child: Text('Compte : Elian et Vincent')),
+        ),
+        Container(
+          height: 150,
+          color: Colors.lightBlue[200],
+          child: const Center(child: Text('Informations du compte')),
+        ),
+        Container(
+          height: 50,
+          color: Colors.redAccent[100],
+          child: const Center(child: Text('Se déconnecter')),
+        ),
+      ],
+    )
   ];
 
   void _onItemTapped(int index) {
@@ -51,7 +84,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Animé-Info'),
+        title: const Center(child: Text('Animé-Info')),
       ),
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
